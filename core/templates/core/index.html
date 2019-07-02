@@ -1,3 +1,41 @@
-{% extends "base.html" %}
+{% extends "core/base.html" %}
 
-{% block content %}Conteúdo{% endblock %}
+{% block content %}
+
+<div class="row">
+  <div class="col-md-6">
+    <h1>Oportunidades: </h1>
+    {% if latestOportunidadeList %}
+      {% for op in latestOportunidadeList%}
+        <div class="card">
+
+          <div class="section dark">
+            <a href="/oportunidade/{{op.id}}">{{ op.titulo }}</a>
+          </div>
+          <div class="section">{{ op.descricao }}</div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>Sem oportunidades cadastradas.</p>
+    {% endif %}
+  </div>
+  <div class="col-md-6">
+    <h1>Eventos</h1>
+    {% if latestEventoList %}
+      {% for ev in latestEventoList%}
+        <div class="card">
+
+          <div class="section dark">
+            <a href="/evento/{{ev.id}}">{{ ev.titulo }}</a>
+          </div>
+          <div class="section">{{ ev.descricao }}</div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>Sem oportunidades cadastradas.</p>
+    {% endif %}
+  </div>
+
+</div>
+
+{% endblock %}

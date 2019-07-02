@@ -5,6 +5,9 @@ from django.utils import timezone
 class CategoriaOportunidade(models.Model):
     nome = models.CharField("Nome", max_length=100)
 
+    def __str__(self):
+        return self.nome
+
 class Oportunidade(models.Model):
     deadline = models.DateField('Deadline')
     categoria = models.ForeignKey(CategoriaOportunidade, on_delete=models.CASCADE)
