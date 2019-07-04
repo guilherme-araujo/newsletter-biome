@@ -13,7 +13,7 @@ class Oportunidade(models.Model):
     categoria = models.ForeignKey(CategoriaOportunidade, on_delete=models.CASCADE)
     link = models.CharField("Link", max_length=200)
     titulo = models.CharField("Título", max_length=200)
-    descricao = models.CharField("Descrição", max_length=1000)
+    descricao = models.TextField("Descrição")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at= models.DateTimeField(auto_now=True)
 
