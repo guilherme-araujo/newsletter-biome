@@ -1,24 +1,44 @@
 from django.shortcuts import render, redirect
 from .models import Oportunidade, Evento
 from .forms import EventoForm, OportunidadeForm
-from django.views.generic import DetailView, UpdateView
+from django.views.generic import DetailView, UpdateView, DeleteView, ListView
 from django.contrib.messages.views import SuccessMessageMixin
 
 # Create your views here.
 def index(request):
-    latestOportunidadeList = Oportunidade.objects.order_by('created_at')[:3]
-    latestEventoList = Evento.objects.order_by('created_at')[:3]
+    latestOportunidadeList = Oportunidade.objects.order_by('deadline')[:5]
+    latestEventoList = Evento.objects.order_by('data_inicio')[:5]
     context = {
         'latestEventoList': latestEventoList,
         'latestOportunidadeList': latestOportunidadeList,
     }
     return render(request, 'core/index.html', context)
 
+class OportunidadeListView(ListView):
+    model = Oportunidade
+    paginate_by = 10
+    
+
+class EventoListView(ListView):
+    model = Evento
+    paginate_by = 10
+
+
 class OportunidadeDetailView(DetailView):
     model = Oportunidade
 
 class EventoDetailView(DetailView):
     model = Evento
+
+class EventoDeleteView(SuccessMessageMixin, DeleteView):
+    model = Evento
+    success_url = '/'
+    success_message = "Removido com sucesso"
+
+class OportunidadeDeleteView(SuccessMessageMixin, DeleteView):
+    model = Oportunidade
+    success_url = '/'
+    success_message = "Removido com sucesso"
 
 class OportunidadeUpdateView(SuccessMessageMixin, UpdateView):
     model = Oportunidade

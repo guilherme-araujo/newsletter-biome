@@ -1,0 +1,31 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <h1>Lista de Oportunidades</h1>
+  </div>
+  {% for op in object_list %}
+  <div class="row">
+    <div class="card">
+
+      <div class="section dark">
+        <a href="/oportunidade/{{op.id}}">{{ op.titulo }}</a>
+      </div>
+      <div class="section">{{ op.descricao }}</div>
+    </div>
+  </div>
+
+  {% empty %}
+  <div class="row">
+    <p><strong>Nenhuma oportunidade cadastrada. </strong></p>
+  </div>
+
+  {% endfor %}
+
+
+
+</div>
+
+{% endblock %}

@@ -17,6 +17,9 @@ class Oportunidade(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at= models.DateTimeField(auto_now=True)
 
+    class Meta:
+        ordering = ['deadline']
+
     def __str__(self):
         return self.titulo
 
@@ -32,6 +35,9 @@ class Evento(models.Model):
     link = models.CharField("Link", max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at= models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['data_inicio']
 
     def __str__(self):
         return self.titulo

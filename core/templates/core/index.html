@@ -14,7 +14,9 @@
           </div>
           <div class="section">{{ op.descricao }}</div>
         </div>
+
       {% endfor %}
+      <a href="{% url 'listOportunidade' %}">Listar todos</a>
     {% else %}
       <p>Sem oportunidades cadastradas.</p>
     {% endif %}
@@ -30,9 +32,12 @@
           </div>
           <div class="section">{{ ev.descricao }}</div>
         </div>
+
+
       {% endfor %}
+      <a href="{% url 'listEvento' %}">Listar todos</a>
     {% else %}
-      <p>Sem oportunidades cadastradas.</p>
+      <p>Sem eventos cadastrados.</p>
     {% endif %}
   </div>
 

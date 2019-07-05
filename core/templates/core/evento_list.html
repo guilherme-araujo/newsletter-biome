@@ -1,0 +1,31 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <h1>Lista de Eventos</h1>
+  </div>
+  {% for ev in object_list %}
+  <div class="row">
+    <div class="card">
+
+      <div class="section dark">
+        <a href="/evento/{{ev.id}}">{{ ev.titulo }}</a>
+      </div>
+      <div class="section">{{ ev.descricao }}</div>
+    </div>
+  </div>
+
+  {% empty %}
+  <div class="row">
+    <p><strong>Nenhum evento cadastrado. </strong></p>
+  </div>
+
+  {% endfor %}
+
+
+
+</div>
+
+{% endblock %}
