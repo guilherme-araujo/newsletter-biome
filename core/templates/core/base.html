@@ -13,6 +13,8 @@
 <body>
   <div class="container">
 
+
+
     <div id="layout", class="row">
       <div id="nav-container" class="col-md-4 col-lg-3" >
           <nav>
@@ -28,6 +30,13 @@
       </div>
 
       <div class="col-md-8 col-lg-9 stretch">
+        {% if messages %}
+
+        {% for m in messages %}
+          <mark{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ m }}</mark>
+        {% endfor %}
+
+        {% endif %}
         <div class="row content-top"></div>
         <main>
           {% block content %}{% endblock %}

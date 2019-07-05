@@ -11,8 +11,8 @@ class EventoForm(ModelForm):
         fields = ('data_inicio', 'data_fim', 'local', 'titulo', 'descricao', 'link',)
         widgets = {
             'descricao': Textarea(attrs={'cols': 60, 'rows': 10}),
-            'data_inicio': DateInput(format="%d/%m/%y",attrs={'type': 'date'}),
-            'data_fim': DateInput(format="%d/%m/%y",attrs={'type': 'date'})
+            'data_inicio': DateInput(format="%Y-%m-%d",attrs={'type': 'date'}),
+            'data_fim': DateInput(format="%Y-%m-%d",attrs={'type': 'date'})
         }
 
 class OportunidadeForm(ModelForm):
@@ -22,5 +22,5 @@ class OportunidadeForm(ModelForm):
         exclude = ['created_at', 'updated_at']
         widgets = {
             'descricao': Textarea(attrs={'cols': 60, 'rows': 10}),
-            'deadline': DateInput(format="%d/%m/%y",attrs={'type': 'date'}),
+            'deadline': DateInput(format="%Y-%m-%d",attrs={'type': 'date'}),
         }
