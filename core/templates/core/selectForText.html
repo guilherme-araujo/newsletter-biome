@@ -1,0 +1,26 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+
+<div class="row">
+  <div class="row">
+
+    <h1>Escolha quais itens levar para o relatório.</h1>
+
+  </div>
+  <br/>
+
+  <div class="row">
+  <form method="POST" >{% csrf_token %}
+    <label for="p_cbox"><input type="checkbox" name="past_events" value="True" id="p_cbox">Eventos passados</label>
+    <label for="c_cbox"><input type="checkbox" name="current_events" value="True" id="c_cbox" checked>Eventos atuais</label>
+    <label for="u_cbox"><input type="checkbox" name="upcoming_events" value="True" id="u_cbox" checked>Eventos futuros</label>
+    <label for="uo_cbox"><input type="checkbox" name="upcoming_opp" value="True" id="uo_cbox" checked>Oportunidades futuras</label>
+    <label for="po_cbox"><input type="checkbox" name="past_opp" value="True" id="po_cbox">Oportunidades passadas</label>
+    <button type="submit">Salvar</button>
+  </form>
+  </div>
+
+</div>
+
+{% endblock %}

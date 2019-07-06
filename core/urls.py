@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('select/', views.selectForText, name="selectForText"),
     path('oportunidade/<int:pk>/', views.OportunidadeDetailView.as_view(), name="detailOportunidade"),
     path('oportunidade_update/<int:pk>/', views.OportunidadeUpdateView.as_view(), name="updateOportunidade"),
     path('oportunidade_delete/<int:pk>/', views.OportunidadeDeleteView.as_view(), name="deleteOportunidade"),
